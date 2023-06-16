@@ -60,6 +60,19 @@ where g.name = 'Rock ' and c.email like '%a%'
 order by email ;
 
 
+--Method 2 
+SELECT DISTINCT email,first_name, last_name
+FROM customer
+JOIN invoice ON customer.customer_id = invoice.customer_id
+JOIN invoiceline ON invoice.invoice_id = invoiceline.invoice_id
+WHERE track_id IN(
+	SELECT track_id FROM track
+	JOIN genre ON track.genre_id = genre.genre_id
+	WHERE genre.name LIKE 'Rock'
+)
+ORDER BY email;
+
+
 -- TASK 2 : WRITE A QUERY THAT RETURNS THE ARTIST NAME AND TOTAL TRACK COUNT OF THR TOP 10 ROCK BRANDS? 
 
 SELECT  artist.artist_id, artist.name,COUNT(artist.artist_id) AS number_of_songs
