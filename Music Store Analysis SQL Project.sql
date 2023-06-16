@@ -70,7 +70,7 @@ WHERE track_id IN(
 	JOIN genre ON track.genre_id = genre.genre_id
 	WHERE genre.name LIKE 'Rock'
 )
-ORDER BY email;
+ORDER BY email; 
 
 
 -- TASK 2 : WRITE A QUERY THAT RETURNS THE ARTIST NAME AND TOTAL TRACK COUNT OF THR TOP 10 ROCK BRANDS? 
